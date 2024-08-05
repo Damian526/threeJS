@@ -1,0 +1,25 @@
+{
+  "name": "threejs",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "vite": "^5.0.10"
+  },
+  "resolutions": {
+    "*.gltf": "identity",
+    "*.glb": "identity"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
+    "three": "^0.159.0"
+  }
+}
