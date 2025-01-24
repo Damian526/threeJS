@@ -8,8 +8,6 @@ import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js"
 import { createGround, createScene, createLights } from "./scene";
 import { loadData, currentPoints } from "./model";
 
-
-
 let renderer, dirLight, hemiLight, mixer, loader, composer;
 let modelColor, lightControls, dirLightPosition, radiusControls;
 const { scene, camera } = createScene();
@@ -44,7 +42,7 @@ function loadModel(loading) {
   loader.load(
     "model/Panel5.fbx",
     (object) => {
-      (object.position.y = 108);
+      object.position.y = 108;
 
       object.traverse((child) => {
         if (child.isMesh) {
@@ -62,7 +60,7 @@ function loadModel(loading) {
     (xhr) => {},
     (error) => {
       console.error("Error:", error);
-      alert('Failed to load model.');
+      alert("Failed to load model.");
       loadingSpinner.style.display = "none";
     }
   );
@@ -81,21 +79,19 @@ function createRenderer() {
   composer = new EffectComposer(renderer);
   composer.setSize(window.innerWidth, window.innerHeight);
 
-
   const renderScene = new RenderPass(scene, camera);
   composer.addPass(renderScene);
 
   const bloomPass = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
-    0.5,  
-    0.8,  
-    0.1   
+    0.5,
+    0.8,
+    0.1
   );
   bloomPass.threshold = 0.2;
   bloomPass.strength = 0.2;
   bloomPass.radius = 1;
   composer.addPass(bloomPass);
-
 
   window.addEventListener("resize", onWindowResize);
 }
@@ -159,7 +155,6 @@ function animate() {
   const delta = clock.getDelta();
 
   if (mixer) mixer.update(delta);
-
 
   composer.render();
 }
