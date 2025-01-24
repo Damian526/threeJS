@@ -40,7 +40,7 @@ function init() {
 function loadModel(loading) {
   loader = new FBXLoader();
   loader.load(
-    "model/Panel5.fbx",
+    "/model/Panel5.fbx",
     (object) => {
       object.position.y = 108;
 
